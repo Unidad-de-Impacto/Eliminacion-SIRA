@@ -1,0 +1,15 @@
+		(1)	(2)	(3)	(4)	(5)
+VARIABLES	LABELS	Vestimenta y Calzado	alim_beb_no_al	restaurantes_hoteles	salud	transporte
+						
+treat	Tratamiento	349.71	308.31**	236.88	-16.97	153.23
+		(264.81)	(128.57)	(277.42)	(82.33)	(136.36)
+t	Tendencia	0.12***	0.05***	0.06***	-0.03***	-0.10***
+		(0.02)	(0.01)	(0.02)	(0.01)	(0.01)
+treat_t	Tratamiento*Tendencia	-2.58	-2.07**	-1.59	0.14	-1.08
+		(1.88)	(0.91)	(1.97)	(0.58)	(0.97)
+						
+Observations		144	144	144	144	144
+R-squared		0.21	0.52	0.16	0.14	0.40
+Errores estandar entre parentesis						
+*** p<0.01, ** p<0.05, * p<0.1						
+El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -14.1						

@@ -1,0 +1,16 @@
+		(1)
+VARIABLES	LABELS	Vestimenta y Calzado
+		
+treat	Tratamiento	456.33***
+		(50.67)
+t	Tendencia	0.12***
+		(0.04)
+treat_t	Tratamiento*Tendencia	-3.31***
+		(0.36)
+Constant	Constant	-6.82***
+		(2.44)
+		
+Observations		145
+Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis		
+*** p<0.01, ** p<0.05, * p<0.1		
+El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -72.22		

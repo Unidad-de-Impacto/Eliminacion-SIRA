@@ -1,0 +1,23 @@
+{\rtf1\fs24
+\trowd\trgaph75\trleft-75\intbl\trqc\clbrdrt\brdrs\cellx3168\clbrdrt\brdrs\cellx6192
+\ql \cell\qc (1)\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3168\cellx6192
+\trowd\trgaph75\trleft-75\trqc\clbrdrb\brdrs\cellx3168\clbrdrb\brdrs\cellx6192
+\ql VARIABLES\cell\qc Vestimenta y calzado\cell\row
+\trowd\trgaph75\trleft-75\trqc\cellx3168\cellx6192
+\ql \cell\qc \cell\row
+\ql Tratamiento\cell\qc 456.33**\cell\row
+\ql \cell\qc (216.57)\cell\row
+\ql Tendencia\cell\qc 0.12***\cell\row
+\ql \cell\qc (0.02)\cell\row
+\ql Tratamiento*Tendencia\cell\qc -3.31**\cell\row
+\ql \cell\qc (1.53)\cell\row
+\ql \cell\qc \cell\row
+\ql Observations\cell\qc 145\cell\row
+\trowd\trgaph75\trleft-75\trqc\trbrdrb\brdrs\clbrdrb\brdrs\cellx3168\clbrdrb\brdrs\cellx6192
+\ql R-squared\cell\qc 0.21\cell\row
+\pard\qc
+Errores estandar entre parentesis\par
+*** p<0.01, ** p<0.05, * p<0.1\par
+El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -72.22\par
+}
