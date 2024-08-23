@@ -49,13 +49,14 @@ gen treat_t=treat*t
 label variable t "Tendencia"
 label variable treat "Tratamiento"
 label variable treat_ "Tratamiento*Tendencia"
+label variable valueipc_vestir_calzado "Vestimenta y Calzado"
 
 extrdate month mes = fecha 
 extrdate month year = fecha
 
 reg valueipc_vestir_calzado treat t treat_t
 display ((8*456.3303-3.308631*138-3.308631*139-3.308631*140-3.308631*141-3.308631*142-3.308631*143-3.308631*144-3.308631*145-3.308631*146)/8) // El efecto promedio del tratamiento entre los meses tratados es de -72.223502
-outreg2 using "$output/Textiles_tabla.doc", nocons ctitle("Vestimenta y calzado") dec(2) label replace nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1", "El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -72.22")
+outreg2 using "$output/Textiles_tabla.doc", nocons dec(2) label replace nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1", "El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -72.22")
 
 reg valueipc_vestir_calzado treat t treat_t i.mes
 
@@ -91,13 +92,17 @@ ren valueipc_alim_beb_no_al alim_beb_no_al
 ren valueipc_restaurantes_hoteles restaurantes_hoteles
 ren valueipc_salud salud
 ren valueipc_transporte transporte
+label variable alim_beb_no_al "Alimentos y Bebidas no Alcoh."
+label variable restaurantes_hoteles "Restaurante y Hoteles"
+label variable salud "Salud"
+label variable transporte "Transporte"
 
 reg valueipc_vestir_calzado treat t treat_t
 outreg2 using "$output/Textiles_tabla_placebos.tex", nocons ctitle("Vestimenta y Calzado") dec(2) label replace nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1", "El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -72.22")
 
 foreach var of varlist alim_beb_no_al restaurantes_hoteles salud transporte {
     reg `var' treat t treat_t
-	outreg2 using "$output/Textiles_tabla_placebos.tex", nocons ctitle(`var') dec(2) label append    
+	outreg2 using "$output/Textiles_tabla_placebos.tex", nocons dec(2) label append    
 }
 
 *Ahora, analizamos los efectos totales promedio para las categorías donde los resultados resultan estadísticamente significativo;
@@ -144,13 +149,17 @@ ren valueipc_alim_beb_no_al alim_beb_no_al
 ren valueipc_restaurantes_hoteles restaurantes_hoteles
 ren valueipc_salud salud
 ren valueipc_transporte transporte
+label variable alim_beb_no_al "Alimentos y Bebidas no Alcoh."
+label variable restaurantes_hoteles "Restaurante y Hoteles"
+label variable salud "Salud"
+label variable transporte "Transporte"
 
 reg valueipc_vestir_calzado treat t treat_t
 outreg2 using "$output/Textiles_tabla_placebos2.tex", nocons ctitle("Vestimenta y Calzado") dec(2) label replace nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1", "El efecto promedio del tratamiento entre los meses tratados para la Vestimenta y Calzado es de -14.1")
 
 foreach var of varlist alim_beb_no_al restaurantes_hoteles salud transporte {
     reg `var' treat t treat_t
-	outreg2 using "$output/Textiles_tabla_placebos2.tex", nocons ctitle(`var') dec(2) label append    
+	outreg2 using "$output/Textiles_tabla_placebos2.tex", nocons dec(2) label append    
 }
 
 // Vestimenta y calzado:
