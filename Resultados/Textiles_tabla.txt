@@ -1,5 +1,5 @@
 		(1)
-VARIABLES	LABELS	Vestimenta y calzado
+VARIABLES	LABELS	Vestimenta y Calzado
 		
 treat	Tratamiento	456.33**
 		(216.57)

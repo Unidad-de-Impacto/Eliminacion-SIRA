@@ -1,5 +1,5 @@
 		(1)	(2)	(3)	(4)	(5)
-VARIABLES	LABELS	Vestimenta y Calzado	alim_beb_no_al	restaurantes_hoteles	salud	transporte
+VARIABLES	LABELS	Vestimenta y Calzado	Alimentos y Bebidas no Alcoh.	Restaurante y Hoteles	Salud	Transporte
 						
 treat	Tratamiento	349.71	308.31**	236.88	-16.97	153.23
 		(264.81)	(128.57)	(277.42)	(82.33)	(136.36)
