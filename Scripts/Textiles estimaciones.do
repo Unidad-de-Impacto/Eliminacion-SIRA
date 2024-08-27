@@ -19,7 +19,7 @@ global output "$main/output"
 cd "$main"
 
 import excel "$input/base_ipc_clean_final_norm.xlsx", firstrow clear
-*Aquí, la variable "value" representa el cociente entre la diferencia del IPC reportado para cada categoría y el IPC general, dividido por el IPC general. Luego, este cociente se multiplica por 100.
+*Aquí, la variable "value" representa el cociente entre la diferencia del IPC reportado para cada categoría y el IPC general, dividido por el IPC general menos 1. Luego, este cociente se multiplica por 100.
 
 *Reordenamos la base de datos para las estimaciones:
 replace ipc_type = subinstr(ipc_type, "Prendas de vestir", "ipc_vestir_calzado", .)
