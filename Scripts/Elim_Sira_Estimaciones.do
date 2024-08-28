@@ -55,24 +55,24 @@ label variable t "Tendencia"
 label variable treat "Tratamiento"
 label variable treat_ "Tratamiento*Tendencia"
 label variable valueipc_vestir_calzado "Vestimenta y Calzado"
-label variable valueipc_blanqueria "Blanqueria"
-label variable valueipc_electro "Electrodomesticos"
-label variable valueipc_prod_recreacion "Prod. de recreacion"
+label variable valueipc_blanqueria "Blanquería"
+label variable valueipc_electro "Electrodomésticos"
+label variable valueipc_prod_recreacion "Prod. de recreación"
 
 extrdate month mes = fecha 
 extrdate month year = fecha
 
 reg valueipc_vestir_calzado treat t treat_t
-outreg2 using "$output/Elim_SIRA_tabla.doc", nocons dec(2) label replace nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_tabla.tex", nocons dec(2) label replace nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 reg valueipc_blanqueria treat t treat_t
-outreg2 using "$output/Elim_SIRA_tabla.doc", nocons dec(2) label append nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_tabla.tex", nocons dec(2) label append nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 reg valueipc_electro treat t treat_t
-outreg2 using "$output/Elim_SIRA_tabla.doc", nocons dec(2) label append nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_tabla.tex", nocons dec(2) label append nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 reg valueipc_prod_recreacion treat t treat_t
-outreg2 using "$output/Elim_SIRA_tabla.doc", nocons dec(2) label append nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_tabla.tex", nocons dec(2) label append nonotes addnote("Errores estandar entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 
 *Realizmaos otras estimaciones para Vestimenta y Calzado para chequear que los resultados son consistentes:
@@ -95,17 +95,17 @@ tsset t
 unique t
 
 newey valueipc_vestir_calzado treat t treat_t, lag(3)
-outreg2 using "$output/Elim_SIRA_newey_tabla.doc", ctitle("Vestimenta y Calzado") dec(2) label replace nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_newey_tabla.tex", ctitle("Vestimenta y Calzado") dec(2) label replace nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 newey valueipc_vestir_calzado treat t treat_t i.mes, lag(3)
 
 newey valueipc_blanqueria treat t treat_t, lag(3)
-outreg2 using "$output/Elim_SIRA_newey_tabla.doc", ctitle("Vestimenta y Calzado") dec(2) label append nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_newey_tabla.tex", ctitle("Vestimenta y Calzado") dec(2) label append nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 newey valueipc_electro treat t treat_t, lag(3)
-outreg2 using "$output/Elim_SIRA_newey_tabla.doc", ctitle("Vestimenta y Calzado") dec(2) label append nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_newey_tabla.tex", ctitle("Vestimenta y Calzado") dec(2) label append nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 newey valueipc_prod_recreacion treat t treat_t, lag(3)
-outreg2 using "$output/Elim_SIRA_newey_tabla.doc", ctitle("Vestimenta y Calzado") dec(2) label append nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
+outreg2 using "$output/Elim_SIRA_newey_tabla.tex", ctitle("Vestimenta y Calzado") dec(2) label append nonotes addnote("Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis", "*** p<0.01, ** p<0.05, * p<0.1")
 
 *===========================*
 * 	      Placebos
@@ -145,6 +145,8 @@ drop primer_valor value
 ren value_norm value
 reshape wide value, i(fecha NivelGeneral empalmar) j(ipc_type) string
 
+
+
 *Como diciembre de 2023 puede considerarse un mes atípico para todos los mercados, se considera analizar los resultados eliminando de nuestra muestra este mes. Es importante mencionar que los efectos hallados son consistente con lo discutido anteriormente.
 sort fecha
 gen treat=0
@@ -163,6 +165,10 @@ reg valueipc_vestir_calzado treat t treat_t
 reg valueipc_vestir_calzado treat t treat_t i.mes
 reg valueipc_vestir_calzado treat t treat_t, robust
 
+label variable valueipc_vestir_calzado "Vestimenta y Calzado"
+label variable valueipc_blanqueria "Blanquería"
+label variable valueipc_electro "Electrodomésticos"
+label variable valueipc_prod_recreacion "Prod. de recreación"
 label variable valueipc_seguros_med "Seguros médicos"
 label variable valueipc_seguros "Seguros" 
 label variable valueipc_recreacion "Servicios de recreación"
