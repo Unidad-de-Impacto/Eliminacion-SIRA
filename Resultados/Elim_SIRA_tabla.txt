@@ -1,0 +1,14 @@
+		(1)	(2)	(3)	(4)
+VARIABLES	LABELS	Vestimenta y Calzado	Blanquería	Electrodomésticos	Prod. de recreación
+					
+treat	Tratamiento	120.06***	217.70***	295.87***	213.93***
+		(30.98)	(23.64)	(49.50)	(33.72)
+t	Tendencia	0.66***	-0.27***	0.04	-0.08
+		(0.08)	(0.06)	(0.14)	(0.09)
+treat_t	Tratamiento*Tendencia	-3.84***	-5.74***	-7.40***	-5.55***
+		(0.79)	(0.60)	(1.26)	(0.86)
+					
+Observations		43	43	43	43
+R-squared		0.80	0.85	0.48	0.58
+Errores estandar entre parentesis					
+*** p<0.01, ** p<0.05, * p<0.1					
