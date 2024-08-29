@@ -9,7 +9,7 @@ clear all
 set more off
 
 else if  "`c(username)'" == "Usuario" {
-	global main "dirección"
+	global main "C:\Users\Usuario\Desktop\Trabajo - UdeSA\Trabajo - Ministerio\Evaluación Textiles"
 	}
 
 *Crear carpetas de "input" (donde estará la base de datos) y "output" (para las tablas/gráficos):
@@ -39,8 +39,9 @@ reshape wide value, i(fecha NivelGeneral empalmar) j(ipc_type) string
 *===========================*
 *		ESTIMACIONES
 *===========================*
-*Se generaron dos variables clave para el análisis: una que captura la tendencia temporal durante el periodo estudiado, y otra que identifica los meses afectados por la modificación del SIRA. Los meses tratados son aquellos posteriores a la fecha de la modificación/derogación, por lo que se consideran como tratados las observaciones a partir de diciembre de 2023. Además, para minimizar el ruido en los datos, restringimos el análisis a un periodo cercano a la intervención, limitándolo a las variaciones observadas entre enero de 2021 y la actualidad.
+*Se generaron dos variables clave para el análisis: una que captura la tendencia temporal durante el periodo estudiado, y otra que identifica los meses afectados por la modificación del SIRA. Los meses tratados son aquellos posteriores a la fecha de la modificación/derogación, por lo que se consideran como tratados las observaciones a partir de diciembre de 2023. Además, para minimizar el ruido en los datos, restringimos el análisis a un periodo cercano a la intervención, limitándolo a las variaciones observadas entre enero de 2022 y la actualidad.
 sort fecha
+drop if fecha<mdy(1,1,2022)
 gen treat=0
 replace treat=1 if fecha>=mdy(12,1,2023)
 gen t=_n
@@ -90,7 +91,7 @@ ritest treat (_b[treat]/_se[treat]), reps(1000) seed(123) kdensityplot: reg valu
 ritest treat (_b[treat]/_se[treat]), reps(1000) seed(123) kdensityplot: reg valueipc_vestir_calzado treat t treat_t i.mes
 
 *Además, reportaremos los errores estándar consistentes con heterocedasticidad y autocorrelación de Newey y West (1994).
-*El número óptimo de rezagos es el numero entero inferior de floor[4(43/100)^{2/9}]=3:
+*El número óptimo de rezagos es el numero entero inferior de floor[4(31/100)^{2/9}]=3:
 tsset t
 unique t
 
@@ -146,9 +147,9 @@ ren value_norm value
 reshape wide value, i(fecha NivelGeneral empalmar) j(ipc_type) string
 
 
-
 *Como diciembre de 2023 puede considerarse un mes atípico para todos los mercados, se considera analizar los resultados eliminando de nuestra muestra este mes. Es importante mencionar que los efectos hallados son consistente con lo discutido anteriormente.
 sort fecha
+drop if fecha<mdy(1,1,2022)
 gen treat=0
 replace treat=1 if fecha>=mdy(12,1,2023)
 drop if fecha==mdy(12,1,2023)
