@@ -1,15 +1,15 @@
 		(1)	(2)	(3)	(4)
 VARIABLES	LABELS	Vestimenta y Calzado	Vestimenta y Calzado	Vestimenta y Calzado	Vestimenta y Calzado
 					
-treat	Tratamiento	120.06***	217.70***	295.87***	213.93***
-		(14.96)	(25.37)	(51.63)	(23.09)
-t	Tendencia	0.66***	-0.27**	0.04	-0.08
-		(0.14)	(0.12)	(0.27)	(0.18)
-treat_t	Tratamiento*Tendencia	-3.84***	-5.74***	-7.40***	-5.55***
-		(0.36)	(0.68)	(1.39)	(0.64)
-Constant	Constant	2.87	0.47	-7.03	5.82**
-		(2.29)	(1.44)	(4.34)	(2.85)
+treat	Tratamiento	66.55***	151.37***	219.69***	149.55***
+		(11.48)	(18.35)	(37.29)	(17.17)
+t	Tendencia	0.15	-0.10	0.93**	0.05
+		(0.26)	(0.22)	(0.40)	(0.38)
+treat_t	Tratamiento*Tendencia	-3.33***	-5.91***	-8.30***	-5.67***
+		(0.43)	(0.74)	(1.49)	(0.78)
+Constant	Constant	18.15***	-5.28**	-19.21***	2.66
+		(4.13)	(1.96)	(4.49)	(3.96)
 					
-Observations		43	43	43	43
+Observations		31	31	31	31
 Errores estandar consistentes con heterocedasticidad y autocorrelacion de Newey y West entre parentesis					
 *** p<0.01, ** p<0.05, * p<0.1					
