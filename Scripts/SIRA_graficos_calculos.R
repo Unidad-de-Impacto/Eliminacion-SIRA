@@ -11,7 +11,7 @@ library(writexl)
 font_add_google("Montserrat", "montserrat")
 showtext_auto()
 
-dir <- "/Users/ariquelme/Downloads/"
+dir <- "direccion"
 
 # Empalme de las bases de datos del IPC para CABA # 
 base_1 <- read_excel(paste0(dir,"ipc_ambos.xlsx"), sheet = "Hoja1")
